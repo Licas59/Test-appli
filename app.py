@@ -1,32 +1,14 @@
-import streamlit as st
+import streamlit as st 
+from streamlit_gsheets import 
+GSheetsConnection 
 
-# Configuration de la page pour qu'elle ressemble à une App
-st.set_page_config(page_title="App Famille", page_icon="🏠")
+st.set_page_config(page_title="Family", page_icon="🏠")
+st.title("🏠Dashboard de la Famille🏠")
 
-st.title("🏠 Notre App Familiale")
+conn = st.connection("gsheets", type = GSheetsConnection)
+url = "https://docs.google.com/spreadsheets/d/1-GcU9NzoVJd2KMQmnQPjnH2VxJOR7sIMe49Jkg78ynA/edit?usp=drivesdk"
 
-# --- PARTIE 1 : BIENVENUE ---
-prenom = st.text_input("C'est qui ?", placeholder="Ton prénom...")
-if prenom:
-    st.write(f"### Salut {prenom} ! 👋")
-
-# --- PARTIE 2 : LISTE DE TÂCHES (Simple) ---
-st.divider()
-st.subheader("📝 Choses à faire")
-
-# On utilise une liste simple pour l'exemple
-# (Note: avec cette méthode simple, la liste revient à zéro à chaque mise à jour du code)
-taches = ["Acheter du pain", "Sortir les poubelles", "Appeler Mamie"]
-
-for t in taches:
-    st.checkbox(t)
-
-# --- PARTIE 3 : INTERACTION ---
-st.divider()
-if st.button("🎈 Lancer une fête !"):
-    st.balloons()
-    st.toast("C'est la fête dans l'app !")
-
-# --- BAS DE PAGE ---
-st.caption("vive les vacances enft")
-
+user = st.sidebar.text_input("Qui est tu ?")
+if not user :
+    st.warning("Veuillez entrer votre nom dans le menu à gauche. ")
+    st.stop()
