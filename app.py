@@ -19,7 +19,7 @@ st.subheader("Message a faire passer")
 with st.form("form_message"):
     auteur = st.text_input("Ton prénom")
     texte = st.text_area("message a faire passer")
-        bouton_valider = st.form_submit_button("Envoyer le message")
+    bouton_valider = st.form_submit_button("Envoyer le message")
 if bouton_valider :
     if auteur and texte :
         nouvelle_donnee = [auteur, texte]
