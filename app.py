@@ -28,5 +28,5 @@ if st.button("🎈 Lancer une fête !"):
     st.toast("C'est la fête dans l'app !")
 
 # --- BAS DE PAGE ---
-st.caption("Fait avec ❤️ en Python")
+st.caption("vive les vacances enft")
 
